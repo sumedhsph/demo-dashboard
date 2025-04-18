@@ -12,7 +12,6 @@ import {
 import socialMediaData from "../../data/socialMediData";
 
 function SocialMediaBarChart() {
-  // डेटा को प्लेटफॉर्म के हिसाब से समेकित करें
   const platformTotals = {};
   socialMediaData.forEach((item) => {
     if (!platformTotals[item.platform]) {
@@ -27,9 +26,9 @@ function SocialMediaBarChart() {
     platformTotals[item.platform].shares += item.shares;
     platformTotals[item.platform].comments += item.comments;
   });
-  const chartData = Object.values(platformTotals); // सिर्फ अनोखे प्लेटफॉर्म का योग
+  const chartData = Object.values(platformTotals);
 
-  console.log("chartData>>>", chartData); // डिबगिंग के लिए
+  //console.log("chartData>>>", chartData);
 
   return (
     <div className="chart-container">
@@ -48,21 +47,21 @@ function SocialMediaBarChart() {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="name"
-              tick={{ fill: "#FF4500" }} // XAxis लेबल्स का रंग ऑरेंज
-              tickLine={{ stroke: "#4169E1" }} // टिक लाइन नीला
+              tick={{ fill: "#5D0404" }}
+              tickLine={{ stroke: "#4169E1" }}
             />
             <YAxis
-              tick={{ fill: "#228B22" }} // YAxis लेबल्स का रंग गहरा हरा
-              tickLine={{ stroke: "#FF0000" }} // टिक लाइन लाल
+              tick={{ fill: "#228B22" }}
+              tickLine={{ stroke: "#FF0000" }}
             />
             <Tooltip />
             <Legend />
-            <Bar dataKey="likes" stackId="a" fill="#8884d8" name="Likes" />
-            <Bar dataKey="shares" stackId="a" fill="#82ca9d" name="Shares" />
+            <Bar dataKey="likes" stackId="a" fill="#E73C64" name="Likes" />
+            <Bar dataKey="shares" stackId="a" fill="#3C4DE7" name="Shares" />
             <Bar
               dataKey="comments"
               stackId="a"
-              fill="#FFC107"
+              fill="#AE4CE4"
               name="Comments"
             />
           </BarChart>
